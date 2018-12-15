@@ -1,7 +1,12 @@
 <template>
   <div class="hello">
-   {{ name }}
-   <button v-on:click="changeName" v-bind:disabled="btnState"> Change Name </button>
+    <div class="holder">
+      <ul>
+        <li v-for="(data, index) in skills" :key='index'> {{index}}. {{data.skill}} </li>
+        <p v-if="skills.length >= 1"> You have more than 1 skills. </p>
+        <p v-else> You have less than or equal to one skill. </p>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -10,8 +15,14 @@ export default {
   name: 'Skills',
   data() {
     return {
-      name: "Meredith", 
-      btnState: true
+      skills: [
+        {
+          "skill": "Vue.js"
+        },
+        {
+          "skill": "Frontend developer"
+        }
+      ]
     }
   }
 }

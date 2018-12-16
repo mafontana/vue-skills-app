@@ -2,7 +2,8 @@
   <div class="hello">
     <div class="holder">
       <form @submit.prevent="addSkill">
-        <input type="text" placeholder="Enter a skill you have.." v-model="skill">
+        <input type="text" placeholder="Enter a skill you have.." v-model="skill" v-validate="'min:5'" name="skill">
+     
       </form>
       <ul>
         <li v-for="(data, index) in skills" :key='index'> {{data.skill}} </li>
@@ -19,12 +20,8 @@ export default {
     return {
       skill: "",
       skills: [
-        {
-          "skill": "Vue.js"
-        },
-        {
-          "skill": "Frontend developer"
-        }
+        
+        
       ]
     }
   },

@@ -10,6 +10,10 @@
       </ul>
       <p>These are your skills. </p>
     </div>
+    <div class="counter">
+      <button v-on:click="increase"> Click Me To Add One To Number Below </button>
+      <p> {{counter}} </p>
+    </div>
   </div>
 </template>
 
@@ -18,9 +22,10 @@ export default {
   name: 'Skills',
   data() {
     return {
+      counter: 0,
       skill: "",
       skills: [
-        
+
         
       ]
     }
@@ -29,7 +34,10 @@ export default {
         addSkill() {
           this.skills.push({skill: this.skill})
           this.skill = '';
-    }
+    },
+        increase() {
+          this.counter++
+        }
   }
 }
 </script>
@@ -99,6 +107,10 @@ export default {
 i {
   float:right;
   cursor:pointer;
+}
+
+button {
+  margin-left: 35%;
 }
 </style>
 
